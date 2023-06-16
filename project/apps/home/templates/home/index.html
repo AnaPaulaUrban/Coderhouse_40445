@@ -1,0 +1,37 @@
+{% extends 'home/base.html' %}
+
+{% load static %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <h3 class="d-flex align-items-center">Bienvenido {{ user.username }}
+            {% if user.vendedor.avatar.url %}
+                <img src="{{ user.vendedor.avatar.url }}" alt="Avatar" style="height: 30px;" /> 
+            {% else %}
+                <img src="{% static 'venta/avatares.png' %}" alt="avatar" style="height: 30px;" />
+            {% endif %}  
+        </h3>
+    {% endif %}
+    {% if messages %}{{ messages }}{% endif %}
+    {% if user.is_staff %}
+        <div class="row">
+            <a href="{% url 'admin:index' %}" class="btn btn-outline-dark">Administración</a>
+        </div>
+        <div class="row">
+            <a href="{% url 'home:register' %}" class="btn btn-outline-dark">Registrar nuevo vendedor</a>
+        </div>
+    {% endif %}
+    <div class="row gx-4 gx-lg-5 align-items-center my-5">
+        <div class="col-lg-7">
+            <img class="img-fluid rounded mb-8 mb-lg-0" src="{% static 'home/img/hogar-peludo.jpg' %}" style="max-width: 450px; height: auto;" alt="Presentación" />
+        </div>
+        <div class="col-lg-5">
+            <h1 class="font-weight-light">Hogar Peludo</h1>
+            <p>
+                Hogar Peludo transmite la idea de la mascota es parte integral de la familia.
+                Si sos amante de los animales y su bienestar, te invitamos a explorar nuestro paraiso de productos!
+            </p>
+            <a class="btn btn-info" href="https://wa.me/5492619999999">WhatsApp</a>
+        </div>
+    </div>
+{% endblock content %}
