@@ -4,9 +4,11 @@ from django.contrib.auth.models import User
 
 
 class CustomUserCreationForm(UserCreationForm):
+    avatar = forms.ImageField(required=False)
+
     class Meta:
         model = User
-        fields = ["username", "password1", "password2"]
+        fields = ["username", "password1", "password2", "avatar"]
         widgets = {
             "username": forms.TextInput(attrs={"class": "form-control"}),
             "password1": forms.PasswordInput(attrs={"class": "form-control"}),

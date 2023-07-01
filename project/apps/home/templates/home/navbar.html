@@ -1,3 +1,4 @@
+
 {% load static %}
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top p-1">
@@ -19,10 +20,10 @@
                     <li class="nav-item"><a class="nav-link {% if request.path == "/producto/" %}active{% endif %}" href="{% url 'producto:index' %}">Productos</a></li>
                     <li class="nav-item"><a class="nav-link {% if request.path == "/venta/" %}active{% endif %}" href="{% url 'venta:index' %}">Ventas</a></li>
                     <li class="nav-item"><a class="nav-link text-bg-light">{{ user.username }}</a></li>
-                    {% if user.vendedor.avatar.url  %}
-                        <li class="nav-item"><img src="{{ user.vendedor.avatar.url }}" alt="avatar" class="img-fluid rounded-circle" style="height: 30px;" ></li>
+                    {% if user.userprofile.avatar %}
+                        <li class="nav-item"><img src="{{ user.userprofile.avatar.url }}" alt="avatar" class="img-fluid rounded-circle" style="height: 30px;"></li>
                     {% else %}
-                        <li class="nav-item"><img src="{% static 'venta/avatares.png' %}" alt="avatar" class="img-fluid rounded-circle" style="height: 30px;" ></li>
+                        <li class="nav-item"><img src="{% static 'venta/avatares.png' %}" alt="avatar" class="img-fluid rounded-circle" style="height: 30px;"></li>
                     {% endif %}
                     <li class="nav-item"><a class="nav-link text-info" href="{% url 'home:logout' %}">Logout</a></li>
                 {% else %}
