@@ -21,3 +21,4 @@ Para ejecutar el proyecto, se deben cumplir los siguientes requisitos:
 - Configurar una base de datos compatible con Django para almacenar los datos.
 
 A continuación dejó un link con el video explicando el funcionamiento de la página…
+https://drive.google.com/file/d/1Yyq25k0aSsQ5O6Py4oIJRaUkqhg4DyY3/view?usp=sharing
